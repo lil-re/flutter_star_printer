@@ -18,7 +18,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_star_prnt:
+  flutter_star_printer:
     path: ../
 
 # For information on the generic Dart part of this file, see the

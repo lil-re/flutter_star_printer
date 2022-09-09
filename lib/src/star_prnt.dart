@@ -24,29 +24,29 @@ class StarPrnt {
     }
   }
 
-  /// Check status of printer. Have specify [portName] and [emulation]. Returns [PrinterResponseStatus]. Use [StarMicronicsUtilities] to find suitable emulations.
+  /// Check status of printer. Have specify [portName] and [modelName]. Returns [PrinterResponseStatus]. Use [StarMicronicsUtilities] to find suitable emulations.
   static Future<PrinterResponseStatus> getStatus({
     required String portName,
-    required String emulation,
+    required String modelName,
   }) async {
     dynamic result = await _channel.invokeMethod('checkStatus', {
       'portName': portName,
-      'emulation': emulation,
+      'emulation': emulationFor(modelName),
     });
     return PrinterResponseStatus.fromMap(
       Map<String, dynamic>.from(result),
     );
   }
 
-  /// Sends [PrintCommands] to the printer. Have to specify [portName] and [emulation]. Returns [PrinterResponseStatus]
+  /// Sends [PrintCommands] to the printer. Have to specify [portName] and [modelName]. Returns [PrinterResponseStatus]
   static Future<PrinterResponseStatus> sendCommands({
     required String portName,
-    required String emulation,
+    required String modelName,
     required PrintCommands printCommands,
   }) async {
     dynamic result = await _channel.invokeMethod('print', {
       'portName': portName,
-      'emulation': emulation,
+      'emulation': emulationFor(modelName),
       'printCommands': printCommands.getCommands(),
     });
     return PrinterResponseStatus.fromMap(
@@ -54,44 +54,18 @@ class StarPrnt {
     );
   }
 
-  /// sends commands to printer to run
-  @Deprecated('Use sendCommands instead.')
-  static Future<dynamic> print({
-    required String portName,
-    required String emulation,
-    required PrintCommands printCommands,
-  }) async {
-    dynamic result = await _channel.invokeMethod('print', {
-      'portName': portName,
-      'emulation': emulation,
-      'printCommands': printCommands.getCommands(),
-    });
-    return result;
-  }
+  static String emulationFor(String modelName) {
+    String emulation = 'StarGraphic';
 
-  /// Check status of printer
-  @Deprecated('Use getStatus instead.')
-  static Future<dynamic> checkStatus({
-    required String portName,
-    required String emulation,
-  }) async {
-    dynamic result = await _channel.invokeMethod('checkStatus', {
-      'portName': portName,
-      'emulation': emulation,
-    });
-    return result;
-  }
+    if (modelName.isNotEmpty) {
+      StarMicronicsModel? model = StarMicronicsUtilities.detectEmulation(
+        modelName: modelName,
+      );
 
-  // static Future<dynamic> connect({
-  //   required String portName,
-  //   required String emulation,
-  //   bool hasBarcodeReader = false,
-  // }) async {
-  //   dynamic result = await _channel.invokeMethod('connect', {
-  //     'portName': portName,
-  //     'emulation': emulation,
-  //     'hasBarcodeReader': hasBarcodeReader,
-  //   });
-  //   return result;
-  // }
+      if (model != null) {
+        emulation = model.emulation!;
+      }
+    }
+    return emulation;
+  }
 }

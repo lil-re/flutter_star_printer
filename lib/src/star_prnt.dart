@@ -9,7 +9,7 @@ import 'printer_response_status.dart';
 /// Class to handle printer communication
 class StarPrnt {
   static const MethodChannel _channel =
-      const MethodChannel('flutter_star_prnt');
+      const MethodChannel('flutter_star_printer');
 
   /// Scan for available printers. Have specify [StarPortType] of the printer
   static Future<List<PortInfo>> portDiscovery(StarPortType portType) async {

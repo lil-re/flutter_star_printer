@@ -1,6 +1,6 @@
-# flutter_star_prnt_example
+# flutter_star_printer_example
 
-Demonstrates how to use the flutter_star_prnt plugin.
+Demonstrates how to use the flutter_star_printer plugin.
 
 ## Getting Started
 

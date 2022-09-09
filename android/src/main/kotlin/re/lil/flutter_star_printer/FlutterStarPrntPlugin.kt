@@ -1,4 +1,4 @@
-package io.eddayy.flutter_star_prnt
+package re.lil.flutter_star_printer
 
 import android.content.Context
 import android.graphics.*
@@ -40,7 +40,7 @@ public class FlutterStarPrntPlugin : FlutterPlugin, MethodCallHandler {
 
     @JvmStatic
     fun registerWith(registrar: Registrar) {
-      val channel = MethodChannel(registrar.messenger(), "flutter_star_prnt")
+      val channel = MethodChannel(registrar.messenger(), "flutter_star_printer")
       channel.setMethodCallHandler(FlutterStarPrntPlugin())
       FlutterStarPrntPlugin.setupPlugin(registrar.messenger(), registrar.context())
     }
@@ -48,7 +48,7 @@ public class FlutterStarPrntPlugin : FlutterPlugin, MethodCallHandler {
     fun setupPlugin(messenger: BinaryMessenger, context: Context) {
       try {
         applicationContext = context.getApplicationContext()
-        val channel = MethodChannel(messenger, "flutter_star_prnt")
+        val channel = MethodChannel(messenger, "flutter_star_printer")
         channel.setMethodCallHandler(FlutterStarPrntPlugin())
       } catch (e: Exception) {
           Log.e("FlutterStarPrnt", "Registration failed", e)
@@ -56,7 +56,7 @@ public class FlutterStarPrntPlugin : FlutterPlugin, MethodCallHandler {
     }
   }
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    val channel = MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "flutter_star_prnt")
+    val channel = MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "flutter_star_printer")
     channel.setMethodCallHandler(FlutterStarPrntPlugin())
     setupPlugin(flutterPluginBinding.getFlutterEngine().getDartExecutor(), flutterPluginBinding.getApplicationContext())
   }

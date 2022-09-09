@@ -1,5 +1,5 @@
-name: flutter_star_prnt_example
-description: Demonstrates how to use the flutter_star_prnt plugin.
+name: flutter_star_printer_example
+description: Demonstrates how to use the flutter_star_printer plugin.
 publish_to: "none"
 
 environment:

@@ -1,21 +1,21 @@
 PODS:
   - Flutter (1.0.0)
-  - flutter_star_prnt (0.0.1):
+  - flutter_star_printer (0.0.1):
     - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - flutter_star_prnt (from `.symlinks/plugins/flutter_star_prnt/ios`)
+  - flutter_star_printer (from `.symlinks/plugins/flutter_star_printer/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
-  flutter_star_prnt:
-    :path: ".symlinks/plugins/flutter_star_prnt/ios"
+  flutter_star_printer:
+    :path: ".symlinks/plugins/flutter_star_printer/ios"
 
 SPEC CHECKSUMS:
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
-  flutter_star_prnt: c4ea89b6b9ccb708624f5830c9d34b7ee1165999
+  flutter_star_printer: c4ea89b6b9ccb708624f5830c9d34b7ee1165999
 
 PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
 

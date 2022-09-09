@@ -1,4 +1,4 @@
-package io.eddayy.flutter_star_prnt_example
+package re.lil.flutter_star_printer_example
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

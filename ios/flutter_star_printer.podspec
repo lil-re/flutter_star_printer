@@ -1,9 +1,9 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint flutter_star_prnt.podspec' to validate before publishing.
+# Run `pod lib lint flutter_star_printer.podspec' to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'flutter_star_prnt'
+  s.name             = 'flutter_star_printer'
   s.version          = '0.0.1'
   s.summary          = 'Flutter plugin for star printers.'
   s.description      = <<-DESC

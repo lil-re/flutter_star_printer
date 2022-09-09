@@ -1,4 +1,4 @@
-group 'io.eddayy.flutter_star_prnt'
+group 're.lil.flutter_star_printer'
 version '1.0-SNAPSHOT'
 
 buildscript {

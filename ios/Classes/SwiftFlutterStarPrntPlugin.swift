@@ -5,7 +5,7 @@ import StarIO_Extension
 
 public class SwiftFlutterStarPrntPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "flutter_star_prnt", binaryMessenger: registrar.messenger())
+    let channel = FlutterMethodChannel(name: "flutter_star_printer", binaryMessenger: registrar.messenger())
     let instance = SwiftFlutterStarPrntPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }

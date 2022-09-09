@@ -10,14 +10,6 @@ Native code based on React Native and Ionic/Cordova version
 React native Version ➜ [here](https://github.com/infoxicator/react-native-star-prnt)  
 Ionic/Cordova Version ➜ [here](https://github.com/auctifera-josed/starprnt)
 
-## Updating from 1.0.4 and lower
-
-If you're having trouble please run these commands
-
-```bash
-rm -rf ios/Pods && rm ios/Podfile.lock && flutter clean
-```
-
 ## Getting started
 
 ### Android

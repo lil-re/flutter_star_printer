@@ -122,6 +122,8 @@ public class FlutterStarPrntPlugin : FlutterPlugin, MethodCallHandler {
         response = getPortDiscovery("LAN")
       } else if (strInterface == "Bluetooth") {
         response = getPortDiscovery("Bluetooth")
+      } else if (strInterface == "BluetoothLowEnergy") {
+        response = getPortDiscovery("BluetoothLowEnergy")
       } else if (strInterface == "USB") {
         response = getPortDiscovery("USB")
       } else {
@@ -264,6 +266,11 @@ public class FlutterStarPrntPlugin : FlutterPlugin, MethodCallHandler {
 
     if (interfaceName == "Bluetooth" || interfaceName == "All") {
       for (portInfo in StarIOPort.searchPrinter("BT:")) {
+        arrayDiscovery.add(portInfo)
+      }
+    }
+    if (interfaceName == "BluetoothLowEnergy" || interfaceName == "All") {
+      for (portInfo in StarIOPort.searchPrinter("BLE:")) {
         arrayDiscovery.add(portInfo)
       }
     }

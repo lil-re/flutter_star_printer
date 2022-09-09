@@ -9,9 +9,18 @@ class StarMicronicsModel {
   /// Printer's emulation
   String? emulation;
 
+  /// Printer's paper width
+  int paperWidth;
+
   /// Model in the product line
   List<String> models;
-  StarMicronicsModel({this.name, this.emulation, required this.models});
+
+  StarMicronicsModel({
+    this.name,
+    this.emulation,
+    this.paperWidth = 576,
+    required this.models,
+  });
 }
 
 /// Static list of [StarMicronicsModel]
@@ -29,6 +38,7 @@ final List<StarMicronicsModel> starMicronicsModels = [
   StarMicronicsModel(
     name: 'mPOP',
     emulation: 'StarPRNT',
+    paperWidth: 400,
     models: ['POP10'],
   ),
   StarMicronicsModel(
@@ -58,6 +68,7 @@ final List<StarMicronicsModel> starMicronicsModels = [
   StarMicronicsModel(
     name: 'TSP800II',
     emulation: 'StarLine',
+    paperWidth: 832,
     models: ['TSP847II (STR_T-001)', 'TSP847 (STR_T-001)'],
   ),
   StarMicronicsModel(
@@ -68,11 +79,13 @@ final List<StarMicronicsModel> starMicronicsModels = [
   StarMicronicsModel(
     name: 'SM-S220i',
     emulation: 'EscPosMobile',
+    paperWidth: 400,
     models: ['SM-S220i'],
   ),
   StarMicronicsModel(
     name: 'SM-S230i',
     emulation: 'EscPosMobile',
+    paperWidth: 400,
     models: ['SM-S230i'],
   ),
   StarMicronicsModel(
@@ -83,6 +96,7 @@ final List<StarMicronicsModel> starMicronicsModels = [
   StarMicronicsModel(
     name: 'SM-T400i',
     emulation: 'EscPosMobile',
+    paperWidth: 832,
     models: ['SM-T400i'],
   ),
   StarMicronicsModel(
@@ -118,11 +132,13 @@ final List<StarMicronicsModel> starMicronicsModels = [
   StarMicronicsModel(
     name: 'SM-L200',
     emulation: 'StarPRNT',
+    paperWidth: 400,
     models: ['SM-L200'],
   ),
   StarMicronicsModel(
     name: 'SP700',
     emulation: 'StarDotImpact',
+    paperWidth: 400,
     models: [
       'SP712 (STR-001)',
       'SP717 (STR-001)',
@@ -142,16 +158,20 @@ class StarMicronicsUtilities {
   /// Detects the [modelName] of the printer and return [StarMicronicsModel], returns [null] if not found
   static StarMicronicsModel? detectEmulation({String? modelName}) {
     if (modelName != null && modelName.isNotEmpty) {
-      return starMicronicsModels.firstWhereOrNull(
-        (starMicronicsModel) =>
-            starMicronicsModel.models.firstWhereOrNull(
-              (supportedModel) => modelName.contains(supportedModel),
-            ) !=
-            null,
-      );
-    } else {
-      return null;
+      for (StarMicronicsModel starModel in starMicronicsModels) {
+        for (String supportedModel in starModel.models) {
+          if (supportedModel == modelName) {
+            return starModel;
+          }
+        }
+      }
     }
+    return null;
+  }
+
+  static int? detectPaperWidth({String? modelName}) {
+    StarMicronicsModel? model = detectEmulation(modelName: modelName);
+    return model != null ? model.paperWidth : null;
   }
 
   /// Checks if command is supported WIP

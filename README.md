@@ -44,14 +44,7 @@ Need to add this into your info.plist for bluetooth printers
 
 ```dart
 // printers.dart
-import 'package:erplain_pos/screens/settings/widgets/settings_available_printers.dart';
-import 'package:erplain_pos/utilities/theme/theme.dart';
-import 'package:erplain_pos/widgets/custom_button.dart';
-import 'package:erplain_pos/widgets/custom_container.dart';
-import 'package:erplain_pos/widgets/custom_text.dart';
-import 'package:erplain_pos/widgets/nav/custom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_star_printer/flutter_star_printer.dart';
 
 class Printers extends StatefulWidget {
@@ -118,13 +111,29 @@ class _PrintersState extends State<Printers> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(
-        title: 'Printers',
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: false,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.keyboard_arrow_left_rounded,
+            color: Colors.black,
+            size: 34,
+          ),
+        ),
+        title: Text(
+          'Printers',
+          style: const TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w600,
+            fontSize: 22,
+          ),
+        ),
         actions: [Container()],
-        displayNavigation: true,
-        onNavigationTap: () {
-          Navigator.pop(context);
-        },
       ),
       body: loading
           ? Container(
@@ -157,17 +166,29 @@ class _PrintersState extends State<Printers> {
                           thickness: 1,
                           color: Colors.grey.shade300,
                         ),
-                        CustomButton(
-                          text: Text('Test printer'),
-                          onPressed: testSelectedPort,
+                        ElevatedButton(
+                          onPressed: testPort,
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: Size.fromHeight(40),
+                            primary: Colors.blue,
+                            elevation: 0,
+                          ),
+                          child: Text(
+                            'TEST PRINTER',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ],
                     ),
                   ),
                 Container(
-                  child: CustomButton(
-                    text: Text('Search printers'),
-                    onPressed: () {
+                  child: ElevatedButton(
+                    onPressed: onPressed: () {
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
@@ -178,6 +199,20 @@ class _PrintersState extends State<Printers> {
                         },
                       );
                     },
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size.fromHeight(40),
+                      primary: Colors.blue,
+                      elevation: 0,
+                    ),
+                    child: Text(
+                      'SEARCH PRINTERS',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ],
@@ -190,9 +225,7 @@ class _PrintersState extends State<Printers> {
 
 ```dart
 // search_printers.dart
-import 'package:erplain_pos/widgets/nav/custom_app_bar_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_star_printer/flutter_star_printer.dart';
 
 class SearchPrinters extends StatelessWidget {

@@ -3,7 +3,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_star_prnt/src/enums.dart';
+import 'package:flutter_star_printer/src/enums.dart';
 
 /// Class to hold print commands and functions to add commands to it
 class PrintCommands {

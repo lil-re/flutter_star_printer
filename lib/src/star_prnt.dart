@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
-import 'package:flutter_star_prnt/src/enums.dart';
-import 'package:flutter_star_prnt/src/portInfo.dart';
-import 'package:flutter_star_prnt/src/print_commands.dart';
-import 'package:flutter_star_prnt/src/utilities.dart';
+import 'package:flutter_star_printer/src/enums.dart';
+import 'package:flutter_star_printer/src/portInfo.dart';
+import 'package:flutter_star_printer/src/print_commands.dart';
+import 'package:flutter_star_printer/src/utilities.dart';
 import 'printer_response_status.dart';
 
 /// Class to handle printer communication

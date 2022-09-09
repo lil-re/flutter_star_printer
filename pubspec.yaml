@@ -1,7 +1,7 @@
-name: flutter_star_prnt
+name: flutter_star_printer
 description: Flutter plugin for using Star Micromics printers. Contains multiple functions to help format the receipt.
 version: 2.3.6
-homepage: https://github.com/Eddayy/flutter_star_prnt
+homepage: https://github.com/lil-re/flutter_star_printer
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -28,7 +28,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: io.eddayy.flutter_star_prnt
+        package: re.lil.flutter_star_printer
         pluginClass: FlutterStarPrntPlugin
       ios:
         pluginClass: FlutterStarPrntPlugin

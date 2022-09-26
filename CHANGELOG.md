@@ -1,3 +1,7 @@
+## 1.0.6
+
+- Add `MCP31 (STR-001)` and `POP10 BLK` models
+
 ## 1.0.5
 
 - Update Star Micronics models

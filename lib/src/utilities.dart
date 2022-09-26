@@ -33,13 +33,13 @@ final List<StarMicronicsModel> starMicronicsModels = [
   StarMicronicsModel(
     name: 'mC-Print3',
     emulation: 'StarPRNT',
-    models: ['MCP30 (STR-001)', 'MCP31'],
+    models: ['MCP30 (STR-001)', 'MCP31 (STR-001)', 'MCP31'],
   ),
   StarMicronicsModel(
     name: 'mPOP',
     emulation: 'StarPRNT',
     paperWidth: 400,
-    models: ['POP10'],
+    models: ['POP10', 'POP10 BLK'],
   ),
   StarMicronicsModel(
     name: 'FVP10',

@@ -1,5 +1,5 @@
 export './src/enums.dart';
-export './src/portInfo.dart';
+export './src/port_info.dart';
 export './src/print_commands.dart';
 export './src/utilities.dart';
 export './src/printer_response_status.dart';

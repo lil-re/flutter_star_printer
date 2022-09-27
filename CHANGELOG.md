@@ -1,3 +1,7 @@
+## 1.1.0
+
+- Update utilities
+
 ## 1.0.6
 
 - Add `MCP31 (STR-001)` and `POP10 BLK` models

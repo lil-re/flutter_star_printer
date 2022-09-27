@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter_star_printer/src/enums.dart';
-import 'package:flutter_star_printer/src/portInfo.dart';
+import 'package:flutter_star_printer/src/port_info.dart';
 import 'package:flutter_star_printer/src/print_commands.dart';
 import 'package:flutter_star_printer/src/utilities.dart';
 import 'printer_response_status.dart';
@@ -24,7 +24,7 @@ class StarPrnt {
     }
   }
 
-  /// Check status of printer. Have specify [portName] and [modelName]. Returns [PrinterResponseStatus]. Use [StarMicronicsUtilities] to find suitable emulations.
+  /// Check status of printer. Have specify [portName] and [modelName]. Returns [PrinterResponseStatus]. Use [StarUtils] to find suitable emulations.
   static Future<PrinterResponseStatus> getStatus({
     required String portName,
     required String modelName,
@@ -58,7 +58,7 @@ class StarPrnt {
     String emulation = 'StarGraphic';
 
     if (modelName.isNotEmpty) {
-      StarMicronicsModel? model = StarMicronicsUtilities.detectEmulation(
+      StarModel? model = StarUtils.detectEmulation(
         modelName: modelName,
       );
 

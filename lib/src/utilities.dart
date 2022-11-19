@@ -82,7 +82,7 @@ final List<StarModel> starModels = [
     models: ['SM-S220i'],
   ),
   StarModel(
-    name: 'SM-S230i',
+    name: 'SM-S230',
     emulation: 'EscPosMobile',
     paperWidth: 386,
     models: ['SM-S230i'],

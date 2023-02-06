@@ -32,7 +32,7 @@ final List<StarModel> starModels = [
   StarModel(
     name: 'mC-Print3',
     emulation: 'StarPRNT',
-    models: ['MCP30 (STR-001)', 'MCP31 (STR-001)', 'MCP31'],
+    models: ['MCP30 (STR-001)', 'MCP31 (STR-001)', 'MCP31', 'MCP31LB'],
   ),
   StarModel(
     name: 'mPOP',

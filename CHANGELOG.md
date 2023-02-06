@@ -1,3 +1,9 @@
+## 1.1.1
+
+- Add MCP31LB model
+- Update SM-S230 model
+- Update Kotlin version
+
 ## 1.1.0
 
 - Update utilities

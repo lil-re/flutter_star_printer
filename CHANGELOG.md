@@ -1,3 +1,6 @@
+## 1.2.0
+- Add appendMultiple option for android
+
 ## 1.1.1
 
 - Add MCP31LB model
